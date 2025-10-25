@@ -18,7 +18,5 @@ void test_validate_my_username()
      * TODO: Replace the line below with your code here as described above to verify your /conf/username.txt 
      * config file and my_username() functions are setup properly
      */
-    const char* userName = my_username();
-    char * confUserName = malloc_username_from_conf_file();
-    TEST_ASSERT_EQUAL_STRING_MESSAGE(userName, confUserName, "success");
+    TEST_ASSERT_EQUAL_STRING_MESSAGE(my_username(), malloc_username_from_conf_file(), "ERROR: my_username() and malloc_username_from_conf_file() are not returning the same string.");
 }
