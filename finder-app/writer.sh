@@ -6,16 +6,19 @@ print_usage () {
 
 EXPECTED_ARGS=2
 
+# Check if there are 2 arguments
 if [ "$#" -ne "$EXPECTED_ARGS" ]; then
     echo "ERROR: 2 arguments are expected but $# were given."
     print_usage
     exit 1
 fi
 
-FILE=$1
+writeFile=$1
 
-DIRECTORY="${FILE%/*}"
+# Extract the directory out of the writeFile argument
+directory="${writeFile%/*}"
 
-mkdir -p $DIRECTORY
-touch $FILE
-echo "$2" > $FILE
+# Make the directory if it doesn't exist, touch the file, then overwrite the file with <searchstr>
+mkdir -p $directory
+touch $writeFile
+echo "$2" > $writeFile
