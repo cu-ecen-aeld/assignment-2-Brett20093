@@ -27,9 +27,6 @@ int main(int argc, char *argv[])
     char* write_file = argv[1];
     char* write_str = argv[2];
 
-    printf("Writing %s to %s\n", write_str, write_file);
-    syslog(LOG_DEBUG, "Writing %s to %s", write_str, write_file);
-
     int fd = open(write_file, O_WRONLY | O_CREAT);
     int write_return = write(fd, write_str, strlen(write_str));
     if (write_return == -1)
